@@ -17,6 +17,8 @@
 		1A67D65824918CAF00ACAC6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D65624918CAF00ACAC6D /* LaunchScreen.storyboard */; };
 		1A67D66324918CAF00ACAC6D /* Le_Petit_RenardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D66224918CAF00ACAC6D /* Le_Petit_RenardTests.swift */; };
 		1A67D66E24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D66D24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift */; };
+		1A67D68024918FA100ACAC6D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D67F24918FA100ACAC6D /* GameOverScene.swift */; };
+		1A67D6822491903800ACAC6D /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D6812491903800ACAC6D /* GameOverScene.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1A67D66924918CAF00ACAC6D /* Le Petit RenardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le Petit RenardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67D66D24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_Petit_RenardUITests.swift; sourceTree = "<group>"; };
 		1A67D66F24918CAF00ACAC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A67D67F24918FA100ACAC6D /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		1A67D6812491903800ACAC6D /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				1A67D65424918CAF00ACAC6D /* Assets.xcassets */,
 				1A67D65624918CAF00ACAC6D /* LaunchScreen.storyboard */,
 				1A67D65924918CAF00ACAC6D /* Info.plist */,
+				1A67D67F24918FA100ACAC6D /* GameOverScene.swift */,
+				1A67D6812491903800ACAC6D /* GameOverScene.sks */,
 			);
 			path = "Le Petit Renard";
 			sourceTree = "<group>";
@@ -242,6 +248,7 @@
 				1A67D64A24918CAD00ACAC6D /* GameScene.sks in Resources */,
 				1A67D65524918CAF00ACAC6D /* Assets.xcassets in Resources */,
 				1A67D65824918CAF00ACAC6D /* LaunchScreen.storyboard in Resources */,
+				1A67D6822491903800ACAC6D /* GameOverScene.sks in Resources */,
 				1A67D64C24918CAD00ACAC6D /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +276,7 @@
 			files = (
 				1A67D64E24918CAD00ACAC6D /* GameScene.swift in Sources */,
 				1A67D65024918CAD00ACAC6D /* GameViewController.swift in Sources */,
+				1A67D68024918FA100ACAC6D /* GameOverScene.swift in Sources */,
 				1A67D64824918CAD00ACAC6D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
