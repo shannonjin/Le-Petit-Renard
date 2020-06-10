@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A67D64824918CAD00ACAC6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D64724918CAD00ACAC6D /* AppDelegate.swift */; };
+		1A67D64A24918CAD00ACAC6D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D64924918CAD00ACAC6D /* GameScene.sks */; };
+		1A67D64C24918CAD00ACAC6D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D64B24918CAD00ACAC6D /* Actions.sks */; };
+		1A67D64E24918CAD00ACAC6D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D64D24918CAD00ACAC6D /* GameScene.swift */; };
+		1A67D65024918CAD00ACAC6D /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D64F24918CAD00ACAC6D /* GameViewController.swift */; };
+		1A67D65324918CAD00ACAC6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D65124918CAD00ACAC6D /* Main.storyboard */; };
+		1A67D65524918CAF00ACAC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D65424918CAF00ACAC6D /* Assets.xcassets */; };
+		1A67D65824918CAF00ACAC6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D65624918CAF00ACAC6D /* LaunchScreen.storyboard */; };
+		1A67D66324918CAF00ACAC6D /* Le_Petit_RenardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D66224918CAF00ACAC6D /* Le_Petit_RenardTests.swift */; };
+		1A67D66E24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D66D24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A67D65F24918CAF00ACAC6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A67D63C24918CAD00ACAC6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A67D64324918CAD00ACAC6D;
+			remoteInfo = "Le Petit Renard";
+		};
+		1A67D66A24918CAF00ACAC6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1A67D63C24918CAD00ACAC6D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A67D64324918CAD00ACAC6D;
+			remoteInfo = "Le Petit Renard";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A67D64424918CAD00ACAC6D /* Le Petit Renard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Petit Renard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A67D64724918CAD00ACAC6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A67D64924918CAD00ACAC6D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		1A67D64B24918CAD00ACAC6D /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		1A67D64D24918CAD00ACAC6D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		1A67D64F24918CAD00ACAC6D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		1A67D65224918CAD00ACAC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1A67D65424918CAF00ACAC6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1A67D65724918CAF00ACAC6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1A67D65924918CAF00ACAC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A67D65E24918CAF00ACAC6D /* Le Petit RenardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le Petit RenardTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A67D66224918CAF00ACAC6D /* Le_Petit_RenardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_Petit_RenardTests.swift; sourceTree = "<group>"; };
+		1A67D66424918CAF00ACAC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A67D66924918CAF00ACAC6D /* Le Petit RenardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Le Petit RenardUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A67D66D24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Le_Petit_RenardUITests.swift; sourceTree = "<group>"; };
+		1A67D66F24918CAF00ACAC6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1A67D64124918CAD00ACAC6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D65B24918CAF00ACAC6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D66624918CAF00ACAC6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A67D63B24918CAD00ACAC6D = {
+			isa = PBXGroup;
+			children = (
+				1A67D64624918CAD00ACAC6D /* Le Petit Renard */,
+				1A67D66124918CAF00ACAC6D /* Le Petit RenardTests */,
+				1A67D66C24918CAF00ACAC6D /* Le Petit RenardUITests */,
+				1A67D64524918CAD00ACAC6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1A67D64524918CAD00ACAC6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1A67D64424918CAD00ACAC6D /* Le Petit Renard.app */,
+				1A67D65E24918CAF00ACAC6D /* Le Petit RenardTests.xctest */,
+				1A67D66924918CAF00ACAC6D /* Le Petit RenardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1A67D64624918CAD00ACAC6D /* Le Petit Renard */ = {
+			isa = PBXGroup;
+			children = (
+				1A67D64724918CAD00ACAC6D /* AppDelegate.swift */,
+				1A67D64924918CAD00ACAC6D /* GameScene.sks */,
+				1A67D64B24918CAD00ACAC6D /* Actions.sks */,
+				1A67D64D24918CAD00ACAC6D /* GameScene.swift */,
+				1A67D64F24918CAD00ACAC6D /* GameViewController.swift */,
+				1A67D65124918CAD00ACAC6D /* Main.storyboard */,
+				1A67D65424918CAF00ACAC6D /* Assets.xcassets */,
+				1A67D65624918CAF00ACAC6D /* LaunchScreen.storyboard */,
+				1A67D65924918CAF00ACAC6D /* Info.plist */,
+			);
+			path = "Le Petit Renard";
+			sourceTree = "<group>";
+		};
+		1A67D66124918CAF00ACAC6D /* Le Petit RenardTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A67D66224918CAF00ACAC6D /* Le_Petit_RenardTests.swift */,
+				1A67D66424918CAF00ACAC6D /* Info.plist */,
+			);
+			path = "Le Petit RenardTests";
+			sourceTree = "<group>";
+		};
+		1A67D66C24918CAF00ACAC6D /* Le Petit RenardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1A67D66D24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift */,
+				1A67D66F24918CAF00ACAC6D /* Info.plist */,
+			);
+			path = "Le Petit RenardUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1A67D64324918CAD00ACAC6D /* Le Petit Renard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A67D67224918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit Renard" */;
+			buildPhases = (
+				1A67D64024918CAD00ACAC6D /* Sources */,
+				1A67D64124918CAD00ACAC6D /* Frameworks */,
+				1A67D64224918CAD00ACAC6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Le Petit Renard";
+			productName = "Le Petit Renard";
+			productReference = 1A67D64424918CAD00ACAC6D /* Le Petit Renard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1A67D65D24918CAF00ACAC6D /* Le Petit RenardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A67D67524918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit RenardTests" */;
+			buildPhases = (
+				1A67D65A24918CAF00ACAC6D /* Sources */,
+				1A67D65B24918CAF00ACAC6D /* Frameworks */,
+				1A67D65C24918CAF00ACAC6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A67D66024918CAF00ACAC6D /* PBXTargetDependency */,
+			);
+			name = "Le Petit RenardTests";
+			productName = "Le Petit RenardTests";
+			productReference = 1A67D65E24918CAF00ACAC6D /* Le Petit RenardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1A67D66824918CAF00ACAC6D /* Le Petit RenardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A67D67824918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit RenardUITests" */;
+			buildPhases = (
+				1A67D66524918CAF00ACAC6D /* Sources */,
+				1A67D66624918CAF00ACAC6D /* Frameworks */,
+				1A67D66724918CAF00ACAC6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A67D66B24918CAF00ACAC6D /* PBXTargetDependency */,
+			);
+			name = "Le Petit RenardUITests";
+			productName = "Le Petit RenardUITests";
+			productReference = 1A67D66924918CAF00ACAC6D /* Le Petit RenardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1A67D63C24918CAD00ACAC6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Shannon Jin";
+				TargetAttributes = {
+					1A67D64324918CAD00ACAC6D = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					1A67D65D24918CAF00ACAC6D = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 1A67D64324918CAD00ACAC6D;
+					};
+					1A67D66824918CAF00ACAC6D = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 1A67D64324918CAD00ACAC6D;
+					};
+				};
+			};
+			buildConfigurationList = 1A67D63F24918CAD00ACAC6D /* Build configuration list for PBXProject "Le Petit Renard" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1A67D63B24918CAD00ACAC6D;
+			productRefGroup = 1A67D64524918CAD00ACAC6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1A67D64324918CAD00ACAC6D /* Le Petit Renard */,
+				1A67D65D24918CAF00ACAC6D /* Le Petit RenardTests */,
+				1A67D66824918CAF00ACAC6D /* Le Petit RenardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1A67D64224918CAD00ACAC6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A67D65324918CAD00ACAC6D /* Main.storyboard in Resources */,
+				1A67D64A24918CAD00ACAC6D /* GameScene.sks in Resources */,
+				1A67D65524918CAF00ACAC6D /* Assets.xcassets in Resources */,
+				1A67D65824918CAF00ACAC6D /* LaunchScreen.storyboard in Resources */,
+				1A67D64C24918CAD00ACAC6D /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D65C24918CAF00ACAC6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D66724918CAF00ACAC6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1A67D64024918CAD00ACAC6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A67D64E24918CAD00ACAC6D /* GameScene.swift in Sources */,
+				1A67D65024918CAD00ACAC6D /* GameViewController.swift in Sources */,
+				1A67D64824918CAD00ACAC6D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D65A24918CAF00ACAC6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A67D66324918CAF00ACAC6D /* Le_Petit_RenardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A67D66524918CAF00ACAC6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A67D66E24918CAF00ACAC6D /* Le_Petit_RenardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A67D66024918CAF00ACAC6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A67D64324918CAD00ACAC6D /* Le Petit Renard */;
+			targetProxy = 1A67D65F24918CAF00ACAC6D /* PBXContainerItemProxy */;
+		};
+		1A67D66B24918CAF00ACAC6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A67D64324918CAD00ACAC6D /* Le Petit Renard */;
+			targetProxy = 1A67D66A24918CAF00ACAC6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1A67D65124918CAD00ACAC6D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A67D65224918CAD00ACAC6D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1A67D65624918CAF00ACAC6D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A67D65724918CAF00ACAC6D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1A67D67024918CAF00ACAC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1A67D67124918CAF00ACAC6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1A67D67324918CAF00ACAC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit Renard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-Renard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A67D67424918CAF00ACAC6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit Renard/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-Renard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1A67D67624918CAF00ACAC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit RenardTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-RenardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Petit Renard.app/Le Petit Renard";
+			};
+			name = Debug;
+		};
+		1A67D67724918CAF00ACAC6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit RenardTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-RenardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Le Petit Renard.app/Le Petit Renard";
+			};
+			name = Release;
+		};
+		1A67D67924918CAF00ACAC6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit RenardUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-RenardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Le Petit Renard";
+			};
+			name = Debug;
+		};
+		1A67D67A24918CAF00ACAC6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Le Petit RenardUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "sj2802.Le-Petit-RenardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Le Petit Renard";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1A67D63F24918CAD00ACAC6D /* Build configuration list for PBXProject "Le Petit Renard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A67D67024918CAF00ACAC6D /* Debug */,
+				1A67D67124918CAF00ACAC6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A67D67224918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit Renard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A67D67324918CAF00ACAC6D /* Debug */,
+				1A67D67424918CAF00ACAC6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A67D67524918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit RenardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A67D67624918CAF00ACAC6D /* Debug */,
+				1A67D67724918CAF00ACAC6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A67D67824918CAF00ACAC6D /* Build configuration list for PBXNativeTarget "Le Petit RenardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A67D67924918CAF00ACAC6D /* Debug */,
+				1A67D67A24918CAF00ACAC6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1A67D63C24918CAD00ACAC6D /* Project object */;
+}
