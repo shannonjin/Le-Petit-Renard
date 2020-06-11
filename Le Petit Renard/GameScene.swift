@@ -62,9 +62,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pathToDraw.move(to: CGPoint(x: (size.width * -1), y: (size.height * -1)))
         pathToDraw.addLine(to: CGPoint(x:size.width, y:  (size.height * -1)))
         edge.path = pathToDraw
-        edge.strokeColor = SKColor.red
-        
-        label = SKLabelNode()
+
+        label = SKLabelNode(fontNamed:"Cochin-BoldItalic")
         label.text = "0"
         label.position = CGPoint(x: frame.midX, y: (frame.height/4))
         label.fontSize = 100
@@ -191,21 +190,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let firstFrameTexture = foxRunFrames[0]
         fox = SKSpriteNode(texture: firstFrameTexture)
-        let actualY = CGFloat((size.height/2) * -1 * 0.6)
-        fox.position = CGPoint(x: frame.midX, y:actualY)
+        let actualY = CGFloat((size.height/2) * -1 * 0.7)
+        fox.position = CGPoint(x: frame.midX, y: (size.height/2))
         fox.xScale = 2.5
         fox.yScale = 2.5
         fox.zPosition = 1.0
         fox.physicsBody = SKPhysicsBody(rectangleOf: fox.size)
-        fox.physicsBody?.affectedByGravity = false
-        fox.physicsBody?.contactTestBitMask = 0b11111
+        fox.physicsBody?.contactTestBitMask = PhysicsCategory.loop | PhysicsCategory.asteroid | PhysicsCategory.star
         fox.physicsBody?.categoryBitMask = PhysicsCategory.fox
         fox.physicsBody?.collisionBitMask = PhysicsCategory.loop | PhysicsCategory.asteroid
         
         let xRange = SKRange(lowerLimit:(-1 * size.width/2),upperLimit:size.width/2)
-        let yRange = SKRange(lowerLimit:actualY,upperLimit:actualY)
-        //sprite.constraints = [SKConstraint.positionX(xRange,Y:yRange)] // iOS 9
+        let yRange = SKRange(lowerLimit:(-1 * size.height/2),upperLimit:size.height/2)
         fox.constraints = [SKConstraint.positionX(xRange,y:yRange)]  // iOS 10
+        
+        let ledge = SKShapeNode()
+        let pathToDraw = CGMutablePath()
+        pathToDraw.move(to: CGPoint(x: (size.width * -1), y: actualY))
+        pathToDraw.addLine(to: CGPoint(x:size.width, y: actualY))
+        ledge.path = pathToDraw
+        
+        if let path = ledge.path{
+            ledge.physicsBody = SKPhysicsBody(edgeChainFrom: path)
+        }
+            
+        ledge.physicsBody?.categoryBitMask = PhysicsCategory.loop
+        ledge.physicsBody?.contactTestBitMask = PhysicsCategory.fox
+        ledge.physicsBody?.collisionBitMask = PhysicsCategory.fox
+        addChild(ledge)
         addChild(fox)
         
         if motionManager.isAccelerometerAvailable {
@@ -253,7 +265,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
 
-        let moveAction = SKAction.moveTo(x: destX, duration: 0.5)
+        let moveAction = SKAction.moveTo(x: destX, duration: 0.3)
         
         let doneAction = SKAction.run({ [weak self] in
              self?.foxMoveEnded()
