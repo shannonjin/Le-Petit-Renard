@@ -13,7 +13,7 @@ import CoreMotion
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    private var lastUpdateTime : TimeInterval = 0
+    private var asteroidTime = 5.0
     
     private var label : SKLabelNode!
     private var score = 0 {
@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private weak var previousScene: SKScene? = nil
+    private var backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
     
     override func sceneDidLoad() {
         
@@ -88,14 +89,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         run(SKAction.repeatForever(
                    SKAction.sequence([
-                       SKAction.wait(forDuration: 5.0),
+                    SKAction.wait(forDuration: asteroidTime),
                        SKAction.run(addAsteroid)
                    ])
              ))
-      
-    //  let backgroundMusic = SKAudioNode(fileNamed: "background-music-aac.caf")
-    //  backgroundMusic.autoplayLooped = true
-    //  addChild(backgroundMusic)*/
+        
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
+        
+        let musicIcon = new 
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -122,6 +124,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if let star = firstBody.node as? SKSpriteNode {
                     score += Int(star.size.width/20)
+                    if asteroidTime > 1.0 {
+                        asteroidTime -= 0.05
+                    }
                     star.removeFromParent()
                 }
             }
@@ -134,7 +139,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         else if(firstBody.categoryBitMask & PhysicsCategory.fox != 0){
             if let asteroid = secondBody.node as? SKSpriteNode {
-                score -= Int(asteroid.size.width/5)
+                score /= Int(asteroid.size.width/5)
                 if(score <= 0){
                     
                     let gameOverScene = GameOverScene(fileNamed:"GameOverScene")
@@ -142,7 +147,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     if let gameOverScene = gameOverScene{
                         gameOverScene.scaleMode = .aspectFit
                         self.removeAllActions()
-                        self.removeAllChildren()
                         let reveal = SKTransition.crossFade(withDuration: 1.0)
                         self.view?.presentScene(gameOverScene, transition:reveal)
                     }
@@ -306,14 +310,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         asteroid.position = CGPoint(x: actualX, y: size.height)
         
-        if(score > 300){
+        if(score > 200){
             let scale = CGFloat.random(in: 1.0 ... 3.0)
             asteroid.xScale = scale
             asteroid.yScale = scale
         }
         
         asteroid.zPosition = 1.0
-        
         asteroid.physicsBody = SKPhysicsBody(rectangleOf: asteroid.size)
         asteroid.physicsBody?.linearDamping = 1.0
         asteroid.physicsBody?.friction = 1.0
@@ -338,6 +341,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     deinit{
         print("deinit")
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for t in touches {
+            
+            let pos = t.location(in: self)
+            for touchedNode in self.nodes(at:pos){
+                
+                if touchedNode.name == "moon"  || touchedNode.name == "rose"{
+                  
+                }
+            }
+           
+            
+        }
+        
     }
 }
 

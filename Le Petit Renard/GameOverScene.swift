@@ -26,20 +26,24 @@ class GameOverScene: SKScene {
         moon.position = CGPoint(x:frame.midX , y: frame.midY)
         moon.run(SKAction.repeatForever(SKAction.rotate(byAngle: .pi / 4, duration: 2.0)))
         moon.zPosition = 1.0
+        moon.name = "moon"
         
         let rose = SKSpriteNode(imageNamed:"rose")
         rose.position = CGPoint (x: size.width/20, y: size.height/10)
         rose.xScale = 3.0
         rose.yScale = 3.0
         rose.zPosition = 2.0
+        rose.name = "rose"
     
         self.addChild(moon)
         self.addChild(rose)
        
         makeLabels()
         
+        let backgroundMusic = SKAudioNode(fileNamed: "music.mp3")
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
     }
-    
     
     func makeLabels(){
         
@@ -78,4 +82,32 @@ class GameOverScene: SKScene {
         book.position = CGPoint(x: frame.midX, y: yPos - 40)
         addChild(book)
     }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for t in touches {
+            
+            let pos = t.location(in: self)
+            for touchedNode in self.nodes(at:pos){
+                
+                if touchedNode.name == "moon"  || touchedNode.name == "rose"{
+                   let scene = GameScene(fileNamed:"GameScene")
+                   if let scene = scene{
+                    scene.scaleMode = .aspectFit
+                    self.removeAllActions()
+                    let reveal = SKTransition.crossFade(withDuration: 1.0)
+                    self.view?.presentScene(scene, transition:reveal)
+                    }
+                }
+            }
+           
+            
+        }
+        
+    }
+    
+    deinit{
+           print("game over! deinit")
+       }
+      
 }

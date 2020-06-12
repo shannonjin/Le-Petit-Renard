@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A35E11B2491A2560035DBA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A35E11A2491A2560035DBA7 /* Localizable.strings */; };
+		1A35E1232492B02E0035DBA7 /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A35E1222492B02E0035DBA7 /* background_music.mp3 */; };
 		1A67D64824918CAD00ACAC6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A67D64724918CAD00ACAC6D /* AppDelegate.swift */; };
 		1A67D64A24918CAD00ACAC6D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D64924918CAD00ACAC6D /* GameScene.sks */; };
 		1A67D64C24918CAD00ACAC6D /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 1A67D64B24918CAD00ACAC6D /* Actions.sks */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		1A35E11A2491A2560035DBA7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1A35E1222492B02E0035DBA7 /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = background_music.mp3; path = ../../../../background_music.mp3; sourceTree = "<group>"; };
 		1A67D64424918CAD00ACAC6D /* Le Petit Renard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Petit Renard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A67D64724918CAD00ACAC6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A67D64924918CAD00ACAC6D /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A35E11C2492AEC40035DBA7 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				1A35E1222492B02E0035DBA7 /* background_music.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		1A67D63B24918CAD00ACAC6D = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		1A67D64624918CAD00ACAC6D /* Le Petit Renard */ = {
 			isa = PBXGroup;
 			children = (
+				1A35E11C2492AEC40035DBA7 /* Sounds */,
 				1A67D64724918CAD00ACAC6D /* AppDelegate.swift */,
 				1A67D64924918CAD00ACAC6D /* GameScene.sks */,
 				1A67D64B24918CAD00ACAC6D /* Actions.sks */,
@@ -247,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A35E1232492B02E0035DBA7 /* background_music.mp3 in Resources */,
 				1A67D65324918CAD00ACAC6D /* Main.storyboard in Resources */,
 				1A35E11B2491A2560035DBA7 /* Localizable.strings in Resources */,
 				1A67D64A24918CAD00ACAC6D /* GameScene.sks in Resources */,
