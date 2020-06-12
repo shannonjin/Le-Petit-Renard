@@ -28,6 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var motionManager = CMMotionManager()
     private var destX:CGFloat  = 0.0
     
+    private var musicOn = true
+    
     struct PhysicsCategory {
       static let none:     UInt32 = 0
       static let all :     UInt32 = UInt32.max
@@ -40,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private weak var previousScene: SKScene? = nil
     private var backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
+    private var musicIcon  = SKSpriteNode()
     
     override func sceneDidLoad() {
         
@@ -56,30 +59,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
         makeFox()
+        makeLabel()
+        makeEdge()
         
-        let edge = SKShapeNode()
-        let pathToDraw = CGMutablePath()
-
-        pathToDraw.move(to: CGPoint(x: (size.width * -1), y: (size.height * -1)))
-        pathToDraw.addLine(to: CGPoint(x:size.width, y:  (size.height * -1)))
-        edge.path = pathToDraw
-
-        label = SKLabelNode(fontNamed:"Cochin-BoldItalic")
-        label.text = "0"
-        label.position = CGPoint(x: frame.midX, y: (frame.height/4))
-        label.fontSize = 100
-        label.zPosition = 1.0
-        addChild(label)
-        
-        if let path = edge.path{
-            edge.physicsBody = SKPhysicsBody(edgeChainFrom: path)
-        }
-        
-        edge.physicsBody?.categoryBitMask = PhysicsCategory.edge
-        edge.physicsBody?.contactTestBitMask = PhysicsCategory.edge
-        edge.physicsBody?.collisionBitMask = PhysicsCategory.none
-        addChild(edge)
-   
         run(SKAction.repeatForever(
             SKAction.sequence([
                 SKAction.run(addStar),
@@ -97,7 +79,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
         
-        let musicIcon = new 
+        makeMusicIcon()
+    }
+    
+    func makeEdge(){
+        
+        let edge = SKShapeNode()
+        let pathToDraw = CGMutablePath()
+        
+        pathToDraw.move(to: CGPoint(x: (size.width * -1), y: (size.height * -1)))
+        pathToDraw.addLine(to: CGPoint(x:size.width, y:  (size.height * -1)))
+        edge.path = pathToDraw
+        
+        if let path = edge.path{
+            edge.physicsBody = SKPhysicsBody(edgeChainFrom: path)
+        }
+        
+        edge.physicsBody?.categoryBitMask = PhysicsCategory.edge
+        edge.physicsBody?.contactTestBitMask = PhysicsCategory.edge
+        edge.physicsBody?.collisionBitMask = PhysicsCategory.none
+        addChild(edge)
+    }
+    
+    func makeMusicIcon(){
+        let textureStart = SKTexture(imageNamed: "music1")
+        musicIcon = SKSpriteNode(texture: textureStart)
+        musicIcon.name = "musicIcon"
+        musicIcon.position = CGPoint(x: size.width/2 * 0.7, y: size.height/2 * 0.8)
+        musicIcon.zPosition = 1.0
+        addChild(musicIcon)
+    }
+    
+    func makeLabel(){
+        label = SKLabelNode(fontNamed:"Cochin-BoldItalic")
+        label.text = "0"
+        label.position = CGPoint(x: frame.midX, y: (frame.height/4))
+        label.fontSize = 100
+        label.zPosition = 1.0
+        addChild(label)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -350,8 +369,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let pos = t.location(in: self)
             for touchedNode in self.nodes(at:pos){
                 
-                if touchedNode.name == "moon"  || touchedNode.name == "rose"{
-                  
+                if touchedNode.name == "musicIcon"{
+                    if musicOn{
+                        backgroundMusic.removeFromParent()
+                        musicOn = false
+                        let texture2 = SKTexture(imageNamed: "music2")
+                        musicIcon.texture = texture2
+                    }
+                    else{
+                        addChild(backgroundMusic)
+                        musicOn = true
+                        let texture1 = SKTexture(imageNamed: "music1")
+                        musicIcon.texture = texture1
+                        
+                    }
+                 
                 }
             }
            

@@ -40,7 +40,7 @@ class GameOverScene: SKScene {
        
         makeLabels()
         
-        let backgroundMusic = SKAudioNode(fileNamed: "music.mp3")
+        let backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
         backgroundMusic.autoplayLooped = true
         addChild(backgroundMusic)
     }
