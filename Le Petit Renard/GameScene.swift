@@ -28,7 +28,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var motionManager = CMMotionManager()
     private var destX:CGFloat  = 0.0
     
-    private var musicOn = true
+    private var musicOn = 1
     
     struct PhysicsCategory {
       static let none:     UInt32 = 0
@@ -75,10 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                        SKAction.run(addAsteroid)
                    ])
              ))
-        
-        backgroundMusic.autoplayLooped = true
-        addChild(backgroundMusic)
-        
+
         makeMusicIcon()
     }
     
@@ -102,8 +99,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func makeMusicIcon(){
-        let textureStart = SKTexture(imageNamed: "music1")
-        musicIcon = SKSpriteNode(texture: textureStart)
+        
+        print(self.musicOn)
+        
+        let musicOn = self.userData?.value(forKey: "musicOn")
+        
+        if musicOn != nil{
+            self.musicOn = musicOn as! Int
+        }
+        
+        if self.musicOn == 1{
+            let textureStart = SKTexture(imageNamed: "music1")
+            musicIcon = SKSpriteNode(texture: textureStart)
+            backgroundMusic.autoplayLooped = true
+            addChild(backgroundMusic)
+        }
+        else{
+            let textureStart = SKTexture(imageNamed: "music2")
+            musicIcon = SKSpriteNode(texture: textureStart)
+        }
+        
         musicIcon.name = "musicIcon"
         musicIcon.position = CGPoint(x: size.width/2 * 0.7, y: size.height/2 * 0.8)
         musicIcon.zPosition = 1.0
@@ -166,7 +181,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     if let gameOverScene = gameOverScene{
                         gameOverScene.scaleMode = .aspectFit
                         self.removeAllActions()
+                        motionManager.stopAccelerometerUpdates()
                         let reveal = SKTransition.crossFade(withDuration: 1.0)
+                        gameOverScene.userData = NSMutableDictionary()
+                        gameOverScene.userData?.setObject(self.musicOn, forKey: "musicOn" as NSCopying)
                         self.view?.presentScene(gameOverScene, transition:reveal)
                     }
                     
@@ -370,15 +388,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             for touchedNode in self.nodes(at:pos){
                 
                 if touchedNode.name == "musicIcon"{
-                    if musicOn{
+                    if musicOn == 1{
                         backgroundMusic.removeFromParent()
-                        musicOn = false
+                        musicOn = -1
                         let texture2 = SKTexture(imageNamed: "music2")
                         musicIcon.texture = texture2
                     }
                     else{
                         addChild(backgroundMusic)
-                        musicOn = true
+                        musicOn = 1
                         let texture1 = SKTexture(imageNamed: "music1")
                         musicIcon.texture = texture1
                         

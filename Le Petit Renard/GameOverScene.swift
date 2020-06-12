@@ -11,6 +11,8 @@ import Foundation
 
 class GameOverScene: SKScene {
     
+    private var musicOn = -1
+    
     override func sceneDidLoad() {
           
          print("game over")
@@ -40,9 +42,14 @@ class GameOverScene: SKScene {
        
         makeLabels()
         
-        let backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
-        backgroundMusic.autoplayLooped = true
-        addChild(backgroundMusic)
+        guard let musicOn = self.userData?.value(forKey: "musicOn") else { return }
+        self.musicOn = musicOn as! Int
+        
+        if self.musicOn == 1{
+            let backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
+            backgroundMusic.autoplayLooped = true
+            addChild(backgroundMusic)
+        }
     }
     
     func makeLabels(){
@@ -96,6 +103,8 @@ class GameOverScene: SKScene {
                     scene.scaleMode = .aspectFit
                     self.removeAllActions()
                     let reveal = SKTransition.crossFade(withDuration: 1.0)
+                    scene.userData = NSMutableDictionary()
+                    scene.userData?.setObject(self.musicOn, forKey: "musicOn" as NSCopying)
                     self.view?.presentScene(scene, transition:reveal)
                     }
                 }
