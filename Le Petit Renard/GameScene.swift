@@ -24,6 +24,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var fox =  SKSpriteNode()
     private var foxRunFrames: [SKTexture] = []
+    private var foxHitFrames: [SKTexture] = []
   
     private var motionManager = CMMotionManager()
     private var destX:CGFloat  = 0.0
@@ -43,8 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private weak var previousScene: SKScene? = nil
     private var backgroundMusic = SKAudioNode(fileNamed: "background_music.mp3")
     private var musicIcon  = SKSpriteNode()
+    private var Xacceleration = 0.0
     
-    override func sceneDidLoad() {
+     override func sceneDidLoad() {
         
         let background = SKSpriteNode(imageNamed:"background")
         background.position = CGPoint(x:frame.midX , y: frame.midY)
@@ -99,8 +101,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func makeMusicIcon(){
-        
-        print(self.musicOn)
         
         let musicOn = self.userData?.value(forKey: "musicOn")
         
@@ -174,6 +174,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if(firstBody.categoryBitMask & PhysicsCategory.fox != 0){
             if let asteroid = secondBody.node as? SKSpriteNode {
                 score /= Int(asteroid.size.width/5)
+                foxHit()
                 if(score <= 0){
                     
                     let gameOverScene = GameOverScene(fileNamed:"GameOverScene")
@@ -219,15 +220,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func makeFox(){
         let foxAnimatedAtlas = SKTextureAtlas(named: "fox")
-        var runFrames: [SKTexture] = []
         
         let numImages = foxAnimatedAtlas.textureNames.count
         
-        for i in 1...numImages{
+        for i in 1...4{
             let foxTextureName = "fox\(i)"
-            runFrames.append(foxAnimatedAtlas.textureNamed(foxTextureName))
+            foxRunFrames.append(foxAnimatedAtlas.textureNamed(foxTextureName))
         }
-        foxRunFrames = runFrames
+        
+        for i in 1...3{
+            let foxTextureName = "foxhit\(i)"
+            foxHitFrames.append(foxAnimatedAtlas.textureNamed(foxTextureName))
+        }
+        
         
         let firstFrameTexture = foxRunFrames[0]
         fox = SKSpriteNode(texture: firstFrameTexture)
@@ -260,6 +265,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ledge.physicsBody?.collisionBitMask = PhysicsCategory.fox
         addChild(ledge)
         addChild(fox)
+        animateFox()
         
         if motionManager.isAccelerometerAvailable {
         motionManager.accelerometerUpdateInterval = 0.01
@@ -271,8 +277,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             if let scene = self{
-                let currentX = scene.fox.position.x
-                scene.destX = currentX + CGFloat(data.acceleration.x * 500)
+
+                scene.fox.position.x += CGFloat(data.acceleration.x * 18)
+                var multiplierForDirection: CGFloat = 1.0
+                scene.Xacceleration = data.acceleration.x
+                
+                if(data.acceleration.x != 0){
+                    if(data.acceleration.x < 0){
+                        multiplierForDirection = -1.0
+                    }
+                    scene.fox.xScale = abs(scene.fox.xScale) * multiplierForDirection
+                }
             }
             
             }
@@ -281,53 +296,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
  
     func animateFox() {
       fox.run(SKAction.repeatForever(
-        SKAction.animate(with: foxRunFrames,
-                         timePerFrame: 0.1,
-                         resize: false,
-                         restore: true)),
-               withKey:"runningInPlaceFox")
+           SKAction.animate(with: foxRunFrames,
+                            timePerFrame: 0.1,
+                            resize: false,
+                            restore: true)),
+                  withKey:"runningInPlaceFox")
     }
     
-    func moveFox() {
-        
-        var multiplierForDirection: CGFloat = 1.0
-        
-        if let accelerometerData = motionManager.accelerometerData {
-            if(accelerometerData.acceleration.x < 0){
-                multiplierForDirection = -1.0
-            }
-        }
-        
-        fox.xScale = abs(fox.xScale) * multiplierForDirection
-        
-        if fox.action(forKey: "runningInPlaceFox") == nil {
-            // if legs are not moving, start them
-            animateFox()
-            
-        }
-
-        let moveAction = SKAction.moveTo(x: destX, duration: 0.3)
-        
-        let doneAction = SKAction.run({ [weak self] in
-             self?.foxMoveEnded()
-           })
-        
-      let moveActionWithDone = SKAction.sequence([moveAction, doneAction])
-      fox.run(moveActionWithDone, withKey:"foxMoving")
-    }
-    
-    func foxMoveEnded() {
-      fox.removeAllActions()
+    func foxHit(){
+        fox.removeAllActions()
+        fox.run(SKAction.repeat(
+            SKAction.animate(with: foxHitFrames,
+                             timePerFrame: 0.01,
+                             resize: false,
+                             restore: true), count: 3))
+        fox.removeAllActions()
+        animateFox()
     }
     
  
     override func update(_ currentTime: TimeInterval) {
         
-        let action = SKAction.run({ [weak self] in
-          self?.moveFox()
-        })
-        
-        fox.run(action)
+        if abs(Xacceleration) < 0.05{
+            if let action = fox.action(forKey:"runningInPlaceFox") {
+                action.speed = 0
+            }
+        }
+        else{
+            if let action = fox.action(forKey:"runningInPlaceFox") {
+                action.speed = 1
+                
+            }
+        }
     }
     
     func addAsteroid(){
