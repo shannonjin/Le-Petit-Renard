@@ -24,7 +24,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var fox =  SKSpriteNode()
     private var foxRunFrames: [SKTexture] = []
-    private var foxHitFrames: [SKTexture] = []
   
     private var motionManager = CMMotionManager()
     private var destX:CGFloat  = 0.0
@@ -174,7 +173,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         else if(firstBody.categoryBitMask & PhysicsCategory.fox != 0){
             if let asteroid = secondBody.node as? SKSpriteNode {
                 score /= Int(asteroid.size.width/5)
-                foxHit()
                 if(score <= 0){
                     
                     let gameOverScene = GameOverScene(fileNamed:"GameOverScene")
@@ -227,13 +225,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let foxTextureName = "fox\(i)"
             foxRunFrames.append(foxAnimatedAtlas.textureNamed(foxTextureName))
         }
-        
-        for i in 1...3{
-            let foxTextureName = "foxhit\(i)"
-            foxHitFrames.append(foxAnimatedAtlas.textureNamed(foxTextureName))
-        }
-        
-        
+    
         let firstFrameTexture = foxRunFrames[0]
         fox = SKSpriteNode(texture: firstFrameTexture)
         let actualY = CGFloat((size.height/2) * -1 * 0.7)
@@ -303,18 +295,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                   withKey:"runningInPlaceFox")
     }
     
-    func foxHit(){
-        fox.removeAllActions()
-        fox.run(SKAction.repeat(
-            SKAction.animate(with: foxHitFrames,
-                             timePerFrame: 0.01,
-                             resize: false,
-                             restore: true), count: 3))
-        fox.removeAllActions()
-        animateFox()
-    }
-    
- 
     override func update(_ currentTime: TimeInterval) {
         
         if abs(Xacceleration) < 0.05{
@@ -347,7 +327,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         asteroid.position = CGPoint(x: actualX, y: size.height)
         
-        if(score > 200){
+        if(score > 100){
             let scale = CGFloat.random(in: 1.0 ... 3.0)
             asteroid.xScale = scale
             asteroid.yScale = scale
